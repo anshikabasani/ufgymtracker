@@ -1,0 +1,12 @@
+backend/.venv/
+backend/frames/
+backend/data/
+backend/__pycache__/
+backend/app/__pycache__/
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+*.pt
+
+# Note: the top-level data/ directory is intentionally NOT ignored —
+# it holds the collected readings, which are the deployed site's database.

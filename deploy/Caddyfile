@@ -1,0 +1,6 @@
+# Replace with your actual domain. Caddy gets and renews a Let's Encrypt
+# certificate automatically — no certbot, no cron job.
+gym.example.com {
+	encode gzip
+	reverse_proxy 127.0.0.1:8000
+}

@@ -1,0 +1,5 @@
+# Just what the scheduled collector needs — no web server. Keeps the CI
+# job's install step small.
+requests==2.32.5
+pillow==11.3.0
+ultralytics==8.4.130
