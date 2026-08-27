@@ -15,11 +15,20 @@ from app.config import CAMERA_URL, POLL_INTERVAL_SECONDS, REQUEST_TIMEOUT_SECOND
 
 FRAMES_DIR = Path(__file__).resolve().parent.parent / "frames"
 
-# Some of UF's load-balanced nodes serve their certificate without the
-# InCommon intermediate, so verification fails depending on which node
-# answers ("unable to get local issuer certificate" — it failed on CI
-# while working locally). Supplying the intermediate and its root here
-# makes the check deterministic, rather than turning verification off.
+# UF serves an incomplete certificate chain: their leaf is issued by
+# "InCommon Intermediate CA - OVG2C", but the chain they send contains a
+# different, unrelated intermediate. The two certificates that actually
+# link the leaf to a trusted root are simply missing.
+#
+# macOS papers over this by downloading missing intermediates on demand
+# (the AIA extension), which is why this works locally but failed on CI
+# with "unable to get local issuer certificate".
+#
+# certs/ufl-chain.pem supplies the two missing intermediates. It anchors
+# to emSign Root CA - G1 taken from certifi — a root that was already
+# trusted — so verification stays genuinely enforced rather than bypassed.
+# If UF fixes their chain or rotates certificates, regenerate it; see
+# deploy/README.md.
 CA_BUNDLE = Path(__file__).resolve().parent.parent / "certs" / "ufl-chain.pem"
 
 
