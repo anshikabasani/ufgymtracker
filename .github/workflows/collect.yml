@@ -6,9 +6,12 @@ on:
     # covers 6am–midnight Eastern in both EST and EDT; app.collect also
     # checks the local time and exits early if the gym is closed.
     #
-    # GitHub's minimum is 5 minutes, and scheduled runs are queued at
-    # best effort — expect real gaps of 10–20 minutes under load.
-    - cron: "*/10 10-23,0-5 * * *"
+    # The odd minutes are deliberate. Scheduled runs are queued at best
+    # effort, and ":00, :10, :20…" is when everyone else's crons fire —
+    # jobs there get stuck behind peak load and are sometimes dropped
+    # rather than run late. Offsetting into the gaps is more reliable at
+    # the same frequency. Expect gaps of 10–20 minutes regardless.
+    - cron: "3,13,23,33,43,53 10-23,0-5 * * *"
   # Lets you trigger a run by hand from the Actions tab, which is how
   # you'll test this the first time.
   workflow_dispatch:
