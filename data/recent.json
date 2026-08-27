@@ -1,8 +1,8 @@
 {
  "current": {
-  "recorded": "2026-08-27T19:02:52+00:00",
-  "people": 19,
-  "level": "Moderate"
+  "recorded": "2026-08-27T22:57:15+00:00",
+  "people": 27,
+  "level": "Busy"
  },
  "readings": [
   {
@@ -28,6 +28,10 @@
   {
    "recorded": "2026-08-27T19:02:52+00:00",
    "people": 19
+  },
+  {
+   "recorded": "2026-08-27T22:57:15+00:00",
+   "people": 27
   }
  ]
 }
