@@ -1,14 +1,10 @@
 {
  "current": {
-  "recorded": "2026-11-01T23:58:28+00:00",
-  "people": 21,
-  "level": "Busy"
+  "recorded": "2026-11-02T13:27:37+00:00",
+  "people": 10,
+  "level": "Moderate"
  },
  "readings": [
-  {
-   "recorded": "2026-10-31T00:40:55+00:00",
-   "people": 7
-  },
   {
    "recorded": "2026-10-31T15:38:32+00:00",
    "people": 0
@@ -36,6 +32,10 @@
   {
    "recorded": "2026-11-01T23:58:28+00:00",
    "people": 21
+  },
+  {
+   "recorded": "2026-11-02T13:27:37+00:00",
+   "people": 10
   }
  ]
 }
